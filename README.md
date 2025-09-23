@@ -1,5 +1,3 @@
-# README for RV32I Single Cycle Design Implementation in SystemVerilog
-
 ## Project Overview
 
 ![alt-text](https://media.cheggcdn.com/media/c71/c71bed0f-53dc-486c-8ab0-d8a53a3702b1/php432Vsz)
