@@ -2,6 +2,8 @@
 
 ## Project Overview
 
+![alt-text](https://media.cheggcdn.com/media/c71/c71bed0f-53dc-486c-8ab0-d8a53a3702b1/php432Vsz)
+
 This project is a **single-cycle RISC-V processor (RV32I)** implementation created in **SystemVerilog**. It is designed based on the architecture presented in the book *Computer Organization and Design: The Hardware/Software Interface* by **David A. Patterson and John L. Hennessy**. This processor design follows the structure outlined for the **RV32I** instruction set architecture (ISA), and the design is simulated using **Icarus Verilog**.
 
 ## Design Structure
