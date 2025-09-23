@@ -20,7 +20,7 @@ The core of the processor is a **single-cycle design**; the design includes the 
 
 Each submodule is carefully designed to handle its specific part of the CPU, including a TB to test individual capability.
 
-**Example RegFile Testbench Output:**
+**Example RegFile_TV.vpp Output:**
 
 <img width="1370" height="762" alt="image" src="https://github.com/user-attachments/assets/6849c4f9-49e5-4e1c-80bf-ccdc86c46eee" />
 
