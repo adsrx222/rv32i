@@ -6,7 +6,7 @@ This project is a **single-cycle RISC-V processor (RV32I)** implementation creat
 
 ## Design Structure
 
-The core of the processor is a **single-cycle design**, which means that each instruction completes in one clock cycle. The design includes the following submodules, as shown in the provided diagram:
+The core of the processor is a **single-cycle design**; the design includes the following submodules, as shown in the provided diagram:
 
 1. **Program Counter (PC)** - The PC keeps track of the address of the current instruction
 2. **Instruction Memory** - This submodule holds the instructions
@@ -25,7 +25,7 @@ Each submodule is carefully designed to handle its specific part of the CPU, inc
 This project is currently a **Work in Progress (WIP)**. Some improvements and additions are planned for future iterations:
 
 1. **Pipelining**: 
-   - A major future enhancement is pipelining**, allowing the processor to execute multiple instructions concurrently, allowing for a significant performance boost.
+   - A major future enhancement is pipelining, allowing the processor to execute multiple instructions concurrently, allowing for a significant performance boost.
    
 2. **Branch Prediction**:
    - I plan to implement branch prediction mechanisms to improve instruction flow and reduce pipeline stalls caused by branching instructions.
