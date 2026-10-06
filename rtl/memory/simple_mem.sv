@@ -31,6 +31,14 @@ module simple_memory #(
 );
 
     localparam int NUM_WORDS = MEM_BYTES / 4;
+    // FIX: Calculate exact index width and slice address bits to keep index in bounds
+    localparam int AW        = $clog2(NUM_WORDS);
+
+    logic [AW-1:0] iaddr;
+    logic [AW-1:0] daddr;
+
+    assign iaddr = imem_addr[AW+1:2];
+    assign daddr = dmem_addr[AW+1:2];
 
     logic [31:0] memory [0:NUM_WORDS-1];
 
@@ -47,7 +55,8 @@ module simple_memory #(
             imem_rvalid <= 1'b0;
 
             if (imem_valid && imem_ready) begin
-                imem_rdata  <= memory[imem_addr >> 2];
+                // FIX: Use bounded iaddr index instead of unbounded 32-bit shift
+                imem_rdata  <= memory[iaddr];
                 imem_rvalid <= 1'b1;
             end
         end
@@ -65,26 +74,28 @@ module simple_memory #(
 
                 if (dmem_write) begin
 
+                    // FIX: Use bounded daddr index for byte-enabled writes
                     if (dmem_be[0])
-                        memory[dmem_addr >> 2][7:0]
+                        memory[daddr][7:0]
                             <= dmem_wdata[7:0];
 
                     if (dmem_be[1])
-                        memory[dmem_addr >> 2][15:8]
+                        memory[daddr][15:8]
                             <= dmem_wdata[15:8];
 
                     if (dmem_be[2])
-                        memory[dmem_addr >> 2][23:16]
+                        memory[daddr][23:16]
                             <= dmem_wdata[23:16];
 
                     if (dmem_be[3])
-                        memory[dmem_addr >> 2][31:24]
+                        memory[daddr][31:24]
                             <= dmem_wdata[31:24];
 
                 end
                 else begin
 
-                    dmem_rdata  <= memory[dmem_addr >> 2];
+                    // FIX: Use bounded daddr index for reads
+                    dmem_rdata  <= memory[daddr];
                     dmem_rvalid <= 1'b1;
 
                 end

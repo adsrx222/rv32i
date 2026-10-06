@@ -7,7 +7,7 @@ module imem (
     input  logic [31:0] req_addr,
 
     // Instruction memory -> CPU
-    output logic        req_ready,
+    output logic        rsp_ready,
     output logic        rsp_valid,
     output logic [31:0] rsp_rdata,
 
@@ -24,7 +24,8 @@ module imem (
     assign mem_valid = req_valid;
     assign mem_addr  = req_addr;
 
-    assign req_ready = mem_ready;
+    // FIX: Assigned to declared output port rsp_ready instead of undeclared req_ready
+    assign rsp_ready = mem_ready;
 
     assign rsp_valid = mem_rvalid;
     assign rsp_rdata = mem_rdata;
